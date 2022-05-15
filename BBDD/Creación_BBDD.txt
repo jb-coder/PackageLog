@@ -1,0 +1,48 @@
+create database packagelog;
+use packagelog;
+
+CREATE TABLE packagelog.usuarios (
+usuario varchar(25) PRIMARY KEY NOT NULL,
+contraseña varchar(25) NOT NULL); 
+
+CREATE TABLE packagelog.envios (
+nenvio varchar(15) PRIMARY KEY NOT NULL,
+cliente varchar(25) NOT NULL,
+cpOrigen varchar(5),
+localidadOrigen varchar(40),
+cpDestino varchar(5) NOT NULL,
+localidadDestino varchar(40),
+destinatario varchar(40) NOT NULL,
+direccion varchar(100) NOT NULL,
+observaciones varchar(200),
+peso numeric,
+volumen numeric 
+);  
+
+CREATE TABLE packagelog.estados (
+idestados numeric PRIMARY KEY NOT NULL,
+nenvio varchar(15) NOT NULL,
+estado varchar(200)NOT NULL,
+fecha datetime NOT NULL,
+FOREIGN KEY (nenvio) REFERENCES envios(nenvio)
+); 
+
+
+CREATE TABLE packagelog.vehiculos (
+idvehiculo numeric PRIMARY KEY NOT NULL,
+matricula varchar(7) NOT NULL,
+rutadesde varchar(5)NOT NULL,
+rutahasta varchar(5)NOT NULL,
+fechaAlta datetime NOT NULL,
+fechaBaja datetime 
+);   
+
+CREATE TABLE packagelog.cargavehiculos (
+idcarga numeric PRIMARY KEY NOT NULL,
+nenvio varchar(15) NOT NULL,
+idvehiculo numeric NOT NULL,
+fechaAlta datetime NOT NULL,
+fechaBaja datetime ,
+FOREIGN KEY (nenvio) REFERENCES envios(nenvio),
+FOREIGN KEY (idvehiculo) REFERENCES vehiculos(idvehiculo)
+);
