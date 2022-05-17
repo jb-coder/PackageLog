@@ -1,7 +1,7 @@
 package gui;
 
 
-// version 1.10
+// version 1.0.1 PRE-RELEASE
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -180,8 +180,8 @@ public class UIInicio extends JFrame {
 			tabbedPane.addTab("Entradas", null, getEntradas(), null);
 			tabbedPane.addTab("Buscador", null, getBuscador(), null);
 			tabbedPane.addTab("Tracking", null, getTracking(), null);
-			tabbedPane.addTab("VehÌculos", null, getVehiculos(), null);
-			tabbedPane.addTab("ClasificaciÛn", null, getClasificacion(), null);
+			tabbedPane.addTab("Veh√≠culos", null, getVehiculos(), null);
+			tabbedPane.addTab("Clasificaci√≥n", null, getClasificacion(), null);
 		}
 		return tabbedPane;
 	}
@@ -278,7 +278,7 @@ public class UIInicio extends JFrame {
 		return Tracking;
 	}
 	
-	//-------------------------------------VEHÕCULOS-------------------------------------//
+	//-------------------------------------VEH√çCULOS-------------------------------------//
 	protected JPanel getVehiculos() {
 		if (Vehiculos == null) {
 			Vehiculos = new JPanel();
@@ -969,7 +969,7 @@ public class UIInicio extends JFrame {
 
 	private JLabel getLblEntradasTitulo() {
 		if (lblEntradasTitulo == null) {
-			lblEntradasTitulo = new JLabel("Introduce los datos para dar entrada a un envÌo");
+			lblEntradasTitulo = new JLabel("Introduce los datos para dar entrada a un env√≠o");
 			lblEntradasTitulo.setFont(new Font("Tahoma", Font.BOLD, 18));
 			lblEntradasTitulo.setBounds(20, 24, 518, 26);
 		}
@@ -1260,7 +1260,7 @@ public class UIInicio extends JFrame {
 
 	private JButton getBtnEliminarVehiculos() {
 		if (btnEliminarVehiculos == null) {
-			btnEliminarVehiculos = new JButton("Eliminar VehÌculo");
+			btnEliminarVehiculos = new JButton("Eliminar Veh√≠culo");
 			btnEliminarVehiculos.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnEliminarVehiculos.setEnabled(false);
 			btnEliminarVehiculos.addActionListener(new ActionListener() {
@@ -1269,9 +1269,9 @@ public class UIInicio extends JFrame {
 
 					if (f != null) {
 						if (f.getCarga().isEmpty()) {
-							String respuesta = sp.eliminarVehÌculos(f.getMatricula());
+							String respuesta = sp.eliminarVeh√≠culos(f.getMatricula());
 							if (respuesta.contains("OK")) {
-								respuestaVehiculos.setText(sp.eliminarVehÌculos(f.getMatricula()));
+								respuestaVehiculos.setText(sp.eliminarVeh√≠culos(f.getMatricula()));
 								txtVehiculosRutaDesde.setText("");
 								txtVehiculosRutaHasta.setText("");
 								txtVehiculosFechaAlta.setText("");
@@ -1281,7 +1281,7 @@ public class UIInicio extends JFrame {
 								btnEliminarVehiculos.setEnabled(false);
 								btnGestionarCarga.setEnabled(false);
 							} else {
-								respuestaVehiculos.setText(sp.eliminarVehÌculos(f.getMatricula()));
+								respuestaVehiculos.setText(sp.eliminarVeh√≠culos(f.getMatricula()));
 							}
 
 						} else {
@@ -1548,7 +1548,7 @@ public class UIInicio extends JFrame {
 						comboClasificarEnvios.setEnabled(false);
 						btnClasificarAgregar.setEnabled(true);
 					} else {
-						txtClasificarRespuesta.setText("No hay vehÌculos que repartan en esos CPs");
+						txtClasificarRespuesta.setText("No hay veh√≠culos que repartan en esos CPs");
 					}
 					if (sacarTodosEnvios.isEmpty()) {
 						btnClasificar.setEnabled(false);
@@ -1664,7 +1664,7 @@ public class UIInicio extends JFrame {
 			txtTituloClasificacion.setBackground(UIManager.getColor("Button.background"));
 			txtTituloClasificacion.setFont(new Font("Tahoma", Font.BOLD, 30));
 			txtTituloClasificacion.setHorizontalAlignment(SwingConstants.CENTER);
-			txtTituloClasificacion.setText("ClasificaciÛn de mercancÌa");
+			txtTituloClasificacion.setText("Clasificaci√≥n de mercanc√≠a");
 			txtTituloClasificacion.setBounds(65, 28, 644, 53);
 			txtTituloClasificacion.setColumns(10);
 		}
