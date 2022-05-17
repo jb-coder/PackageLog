@@ -80,8 +80,8 @@ public class DatosEnvioDao implements DatosEnvioDaoI{
 		DatosEnvio salida;
 		List<DatosEnvio> salidalista = new ArrayList<DatosEnvio>();
 		Statement st = c.createStatement();
-		ResultSet result = st.executeQuery("select * from envios where nenvio not in (select nenvio from estados where estado='Entregado')"
-				+ "and nenvio not in (select nenvio from cargafurgonetas where fechaBaja is null) order By cpDestino desc");
+		ResultSet result = st.executeQuery("SELECT * FROM envios WHERE nenvio NOT IN (SELECT nenvio FROM estados WHERE estado='Entregado')"
+				+ "AND nenvio NOT IN (SELECT nenvio FROM cargavehiculos WHERE fechaBaja IS NULL) ORDER BY cpDestino desc");
 		if (result.next()) {
 		    do {
 		    	 salida = new DatosEnvio();
